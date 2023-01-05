@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		The Ethiopian Journal of Health Development
+	</title>
+
+	<link rel="icon" href="{{ url_for('main.static', filename='document_files/favicon_en_US.png') }}">
+	<meta name="description"
+		content="The Ethiopian Journal of Health Development is a multi and interdisciplinary platform that provides space for public health experts in academics, policy and programs to share empirical evidence to contribute to health development agenda">
+	<meta name="generator" content="Open Journal Systems 3.2.1.2">
+	<meta name="title" content="The Ethiopian Journal of Health Development">
+	<meta name="description"
+		content="its a multi and interdisciplinary platform that provides space for public health experts in academics, policy, and programs.">
+	<meta name="keywords" content="Ethiopian, Journal, Health, Development, EJHD, EPHA, Public Health, Health">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/css.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/font-awesome.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/css(0).css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/bootstrap.min.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/stylesheet.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/orcidProfile.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='document_files/styleSheet.css') }}" type="text/css">
+</head>
+
+<body class="pkp_page_index pkp_op_index" dir="ltr">
+
+	<div class="pkp_structure_page">
+
+		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+			<nav class="cmp_skip_to_content" aria-label="Jump to content links">
+				<a href="#pkp_content_main">Skip to main content</a>
+				<a href="#siteNav">Skip to main navigation menu</a>
+				<a href="#homepageIssue">Skip to the current issue</a>
+				<a href="#pkp_content_footer">Skip to site footer</a>
+			</nav>
+
+			<div class="pkp_head_wrapper">
+
+				<div class="pkp_site_name_wrapper">
+					<button class="pkp_site_nav_toggle">
+						<span>Open Menu</span>
+					</button>
+					<h1 class="pkp_screen_reader">
+						The Ethiopian Journal of Health Development
+					</h1>
+					<div class="pkp_site_name">
+						<a href="{{ url_for('index') }}" class="is_text">The Ethiopian Journal of Health
+							Development </a>
+					</div>
+				</div>
+
+
+				<nav class="pkp_site_nav_menu" aria-label="Site Navigation">
+					<a id="siteNav"></a>
+					<div class="pkp_navigation_primary_row">
+						<div class="pkp_navigation_primary_wrapper">
+							<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+								<li class="">
+									<a href="{{ url_for('index') }}">
+										Home
+									</a>
+									<!-- <ul>
+										<li class="">
+											<a href="https://ejhd.org/index.php/ejhd/announcement">
+												Announcements and News
+											</a>
+										</li>
+										<li class="">
+											<a href="https://ejhd.org/index.php/ejhd/in-review">
+												In review
+											</a>
+										</li>
+										<li class="">
+											<a href="https://ejhd.org/index.php/ejhd/sponsors">
+												Sponsors
+											</a>
+										</li>
+										<li class="">
+											<a href="https://ejhd.org/index.php/ejhd/contact-us">
+												Contact Us
+											</a>
+										</li>
+									</ul> -->
+								</li>
+								<li class="">
+									<a href="{{ url_for('aboutjour') }}">
+										About
+									</a>
+									<ul>
+										<li class="">
+											<a href="{{ url_for('aboutjour') }}">
+												About the Ethiopian Journal of Health Development
+											</a>
+										</li>
+										<li class="">
+											<a href="{{ url_for('aim') }}">
+												Aims &amp; Scope
+											</a>
+										</li>
+										<li class="">
+											<a href="{{ url_for('team') }}">
+												Editorial Team
+											</a>
+										</li>
+										<li class="">
+											<a href="{{ url_for('policy') }}">
+												Editorial Policy and Ethics
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="">
+									<a href="{{ url_for('current') }}">
+										Articles
+									</a>
+									<ul>
+										<li class="">
+											<a href="{{ url_for('current') }}">
+												Current
+											</a>
+										</li>
+										<li class="">
+											<a href="{{ url_for('archive') }}">
+												Archives
+											</a>
+										</li>
+										<li class="">
+											<a href="{{ url_for('just') }}">
+												Just Accepted
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="">
+									<a href="{{ url_for('submission') }}">
+										Submission
+									</a>
+								</li>
+							</ul>
+
+
+
+
+							<form class="pkp_search pkp_search_desktop">
+								<a href="{{ url_for('search') }}">
+									<button type="submit">
+										Search
+									</button>
+								</a>
+								<div class="search_controls" aria-hidden="true">
+									<a href="{{ url_for('search') }}"
+										class="headerSearchPrompt search_prompt" aria-hidden="true">
+										Search
+									</a>
+									<a href="" class="search_cancel headerSearchCancel" aria-hidden="true"></a>
+									<span class="search_loading" aria-hidden="true"></span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- <div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+						<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
+							<li class="profile">
+								<a href="https://ejhd.org/index.php/ejhd/user/register">
+									Register
+								</a>
+							</li>
+							<li class="profile">
+								<a href="https://ejhd.org/index.php/ejhd/login">
+									Login
+								</a>
+							</li>
+						</ul>
+
+					</div> -->
+
+					<form class="pkp_search pkp_search_mobile" action="https://ejhd.org/index.php/ejhd/search/search"
+						method="get" role="search" aria-label="Article Search">
+						<input type="hidden" name="csrfToken" value="6e39d459dd736325e63182403208cf42">
+
+						<input name="query" value="" type="text" aria-label="Search Query">
+
+
+						<button type="submit">
+							Search
+						</button>
+						<div class="search_controls" aria-hidden="true">
+							<a href="https://ejhd.org/index.php/ejhd/search/search"
+								class="headerSearchPrompt search_prompt" aria-hidden="true">
+								Search
+							</a>
+							<a href="" class="search_cancel headerSearchCancel" aria-hidden="true"></a>
+							<span class="search_loading" aria-hidden="true"></span>
+						</div>
+					</form>
+				</nav>
+			</div><!-- .pkp_head_wrapper -->
+		</header><!-- .pkp_structure_head -->
+
+
+        {% block main %}
+        {% endblock %} 
+
+
+        <div class="pkp_structure_footer_wrapper" role="contentinfo">
+			<a id="pkp_content_footer"></a>
+
+			<div class="pkp_structure_footer">
+
+				<div class="pkp_footer_content">
+					<p><strong>{{ info.title }}</strong><br>{{ info.text }}<br>Email: {{ info.email }}</p>
+				</div>
+
+				<div class="pkp_brand_footer" role="complementary">
+					<a href="#">
+						<img alt="More information about the publishing system, Platform and Workflow by OJS/PKP."
+							src="{{ url_for('main.static', filename='document_files/ojs_brand.png') }}">
+					</a>
+				</div>
+			</div>
+		</div><!-- pkp_structure_footer_wrapper -->
+
+	</div><!-- pkp_structure_page -->
+
+	<script src="{{ url_for('main.static', filename='document_files/jquery.min.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery-ui.min.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery.tag-it.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/popper.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/util.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/dropdown.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/main.js?v=3.2.1.2') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery.min(0).js?v=3.2.1.2') }}" type="text/javascript"></script>
+
+</body>
+
+</html>

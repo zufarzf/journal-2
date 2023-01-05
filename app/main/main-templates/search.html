@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="pkp_structure_content has_sidebar">
+	<div class="pkp_structure_main" role="main">
+		<a id="pkp_content_main"></a>
+
+
+		<div class="page page_search">
+
+			<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+				<ol>
+					<li>
+						<a href="{{ url_for('index') }}">
+							Home
+						</a>
+						<span class="separator">/</span>
+					</li>
+					<li class="current">
+						<span aria-current="page">
+							Search
+						</span>
+					</li>
+				</ol>
+			</nav>
+
+			<h1>
+				Search
+			</h1>
+
+			<form class="cmp_form" method="get" action="{{ url_for('search') }}">
+				<div class="search_input">
+					<label class="pkp_screen_reader" for="query">
+						Search articles for
+					</label>
+						<input type="text" id="query" name="query" value="{{ item }}" class="query" placeholder="Search">
+
+				</div>
+				<br>
+				<div class="submit">
+					<button class="submit" type="submit">Search</button>
+				</div>
+			</form>
+			<div class="search_results">
+			</div>
+
+			{% if cat_items %}
+			<div class="page page_issue_archive">
+				<ul class="issues_archive">
+					{% for i in cat_items %}
+					<li>
+						<div class="obj_issue_summary">
+							<h2>
+								<a class="title" href="{{ url_for('volume', volume=i.name) }}">
+									{{ i.name }}
+								</a>
+							</h2>
+							<div class="description">
+	
+							</div>
+						</div><!-- .obj_issue_summary -->
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+
+			{% if items %}
+			<div class="section">
+				<ul class="cmp_article_list articles">
+					{% for i in items %}
+					<li>
+						<div class="obj_article_summary">
+							<div class="title">
+								<a id="article-5378"
+									href="#">
+									{{ i.text }}
+								</a>
+							</div>
+							<div class="meta">
+								<div class="authors">
+									<i class="fa fa-users green" aria-hidden="true"></i> 
+									{{ i.author }}
+								</div>
+							</div>
+							<div class="tocreadcount">
+								<span></span> <span><i class="fa fa-bar-chart" aria-hidden="true"></i>
+									Abstract views:</span> <span><strong>{{ i.views }}</strong></span>
+							</div>
+							<div class="item doi">
+							</div>
+							<ul class="galleys_links">
+								<li>
+									<a class="obj_galley_link pdf"
+										href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+
+										PDF
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% else %}
+			<div class="cmp_notification notice">
+				No result
+			</div>
+			{% endif %}
+			
+		</div><!-- .page -->
+
+	</div><!-- pkp_structure_main -->
+
+	<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+		<div class="pkp_block block_make_submission">
+			<h2 class="pkp_screen_reader">
+				Make a Submission
+			</h2>
+		</div>
+
+	</div><!-- pkp_sidebar.left -->
+</div><!-- pkp_structure_content -->
+
+{% endblock main %}

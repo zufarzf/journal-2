@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="pkp_structure_content has_sidebar">
+	<div class="pkp_structure_main" role="main">
+		<a id="pkp_content_main"></a>
+
+		<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+			<ol>
+				<li>
+					<a href="{{ url_for('index') }}">
+						Home
+					</a>
+					<span class="separator">/</span>
+				</li>
+				<li class="current">
+					<span aria-current="page">
+						Submission
+					</span>
+				</li>
+			</ol>
+		</nav>
+
+
+		<h1 class="page_title">Submission</h1>
+		<div class="page">
+			<ol>
+				<li style="text-align: justify;"><strong>AUTHOR GUIDE</strong></li>
+				<li><strong>Cover letter</strong>
+					<ol>
+						<li>Title</li>
+						<li>Explanation of any conflict of interest</li>
+						<li>Justifications of submission to EJHD</li>
+						<li>Suggest three potential reviewers</li>
+						<li>Statement that submission is solely to this journal</li>
+						<li>Novelty and research highlights</li>
+						<li>Signed copyright by all authors</li>
+					</ol>
+				</li>
+				<li>Signed authorship statement from all authors <em>(The EJHD Authorship Responsibility,
+						Acknowledgment, Disclosure of Potential Conflicts of Interest, and Publishing
+						Agreement)</em></li>
+				<li>Title page (different from the main text)
+					<ol>
+						<li>Title of article</li>
+					</ol>
+				</li>
+			</ol>
+			<p style="text-align: justify;">The title should be as clear as possible so that is concisely
+				summarizes the paper</p>
+			<ol style="text-align: justify;">
+				<li>&nbsp;&nbsp; List all authorsâ€™ names, institutional affiliations and ORCID ID if available
+				</li>
+			</ol>
+			<ol style="text-align: justify;" start="4">
+				<li>Abstract</li>
+			</ol>
+			<p style="text-align: justify;">The abstract should be concise (maximum of 300 words). This should
+				stand-alone and should not be part of the document.</p>
+			<ol style="text-align: justify;">
+				<li>Background: What issues led to this work? What is the environment that makes this work
+					interesting or important?</li>
+				<li>Objective/Aim</li>
+				<li>Methods: how the study was done (setting, sources of data, collection, analysis etc.)</li>
+				<li>Results: What were the main findings of the study, with appropriate illustrations?</li>
+				<li>Discussion: Interpretation of the findings. What do the results mean vis-Ã&nbsp;-vis
+					available evidence and oneâ€™s own experience?</li>
+				<li>Conclusions: What would you say about the study in its totality, and what do you send as a
+					message to different stakeholders on why are the results are important?</li>
+				<li>Key words: words or phrases that you feel capture the most&nbsp;important&nbsp;aspects of
+					your paper</li>
+			</ol>
+			<ol style="text-align: justify;" start="5">
+				<li><strong>Introduction</strong>
+					<ol>
+						<li>Indicate the field of the work, why this field is important, and what has already
+							been done</li>
+						<li>Indicate a gap, raise a research question, or challenge from previous work in this
+							territory</li>
+						<li>Outline the purpose and announce the present research, clearly indicating what is
+							novel and why it is significant</li>
+						<li>Avoid repeating the abstract; providing unnecessary background information;
+							exaggerating the importance of work</li>
+					</ol>
+				</li>
+				<li><strong>Methods</strong>
+					<ol>
+						<li>Describe how the results were generated with sufficient detail so that an
+							independent researcher (working in the same field) could reproduce the results
+							sufficiently to allow validation of the conclusions. The authors shall provide
+							detailed information on the design, study participants, data collection and
+							measurements</li>
+						<li>Has the chosen method been justified (design, assumptions for sampling, study
+							participants and selection, tools for data collection etc.)?</li>
+						<li>Are data analysis and statistical approaches and tools, with assumptions and biases,
+							considered?</li>
+						<li>Avoid including results in the method section; including extraneous details
+							(unnecessary to enable reproducibility or judge validity); treating the method as a
+							chronological history of what happened; unneeded references to commercial products;
+							references to â€œproprietaryâ€ products or processes unavailable to the reader</li>
+						<li>Ethical Statement should be included after the section on â€˜Methodsâ€™</li>
+					</ol>
+				</li>
+				<li><strong>Results</strong>
+					<ol>
+						<li>Present the results of the paper, in logical order, starting with characterizing
+							study participants</li>
+						<li>Cross-check if objectives of the study are all addressed</li>
+						<li>Consider use of tables, graphs and illustrations as necessary not more than five
+						</li>
+						<li>Tables/Figures should be presented within the text</li>
+					</ol>
+				</li>
+			</ol>
+			<ol style="text-align: justify;" start="8">
+				<li><strong>Discussion</strong>
+					<ol>
+						<li>Chose key results that you want to discuss â€“ explain by way of shedding light on
+							what the result means</li>
+						<li>What does the result mean in view of existing evidence?</li>
+						<li>Summarize if the results were expected or not and why</li>
+						<li>Avoid discussing results that are not presented in the â€˜Resultsâ€™ section</li>
+					</ol>
+				</li>
+			</ol>
+			<ol style="text-align: justify;" start="9">
+				<li><strong>Conclusions</strong>
+					<ol>
+						<li>Provide a very brief summary of Results and Discussion â€“ no repetition of results
+						</li>
+						<li>Emphasize the implications of the findings, explaining how the work is significant
+							and providing the key message(s) the author wishes to convey</li>
+						<li>Provide the most general claims that can be supported by the evidence</li>
+						<li>Provide suggested future perspective on the work (recommendations)</li>
+						<li>Avoid: repeating the abstract; repeating background information from the
+							introduction; introducing new evidence or new arguments not found in the
+							â€˜Resultsâ€™ and â€˜Discussionâ€™ sections; failing to address all of the research
+							questions set out in the â€˜Introductionâ€™</li>
+					</ol>
+				</li>
+				<li><strong>Conflict of interest statement with respect to funding and so on</strong></li>
+				<li><strong>Contribution of authors</strong></li>
+				<li><strong>References â€“ make sure to follow Vancouver style:</strong>
+					<ol>
+						<li>Include contemporary citations that provide sufficient context to allow for critical
+							analysis of this work by others</li>
+						<li>Include citations that give the reader sources of background and related material so
+							that the current work can be understood by the target audience</li>
+						<li>Include citations that acknowledge and give credit to sources relied upon for this
+							work</li>
+						<li>Use Vancouver referencing style (for more information
+							http://guides.lib.monash.edu/citing-referencing/vancouver)</li>
+					</ol>
+				</li>
+				<li><strong>Figures and Tables</strong>
+					<ol>
+						<li>Ensure that the Figures accurately and carefully document the data and their context
+						</li>
+						<li>Provide appropriate titles that best describe the content</li>
+						<li>Figures and Tables should appear in the last page of the document</li>
+						<li>Total number of combined Tables and Figures should not exceed five</li>
+					</ol>
+				</li>
+			</ol>
+			<p style="text-align: justify;"><strong>General Formatting</strong></p>
+			<ol>
+				<li style="text-align: justify;">The document should be prepared in the order of sections
+					described above</li>
+				<li style="text-align: justify;">Authorsâ€™ names and affiliations should be strictly uploaded
+					in a different Word file.</li>
+				<li style="text-align: justify;">Font size should be 12pt Times New Roman</li>
+				<li style="text-align: justify;">Space between lines should be double</li>
+				<li style="text-align: justify;">The absolute word limit, excluding abstract, is 3,500 words for
+					Original Article and perspectives, 1,500 for brief communication and commentary, 750 for
+					letters to the editor excluding the title page, abstract, tables and illustrations.</li>
+				<li style="text-align: justify;">The main manuscript should include continuous line and page
+					number</li>
+			</ol>
+		</div>
+
+	</div><!-- pkp_structure_main -->
+
+	<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+		<div class="pkp_block block_make_submission">
+			<h2 class="pkp_screen_reader">
+				Make a Submission
+			</h2>
+
+		</div>
+
+	</div><!-- pkp_sidebar.left -->
+</div><!-- pkp_structure_content -->
+{% endblock main %}

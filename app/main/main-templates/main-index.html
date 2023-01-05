@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="pkp_structure_content has_sidebar">
+	<div class="pkp_structure_main" role="main">
+		<a id="pkp_content_main"></a>
+
+		<div class="page_index_journal">
+			<div class="additional_content">
+				<div class="page_index_journal">
+					<div class="additional_content">
+						<div class="container">
+							<div class="row">
+								<div class="aimcolumn aimleft">
+									<img style="width: 360px;"
+										src="{{ url_for('main.static', filename='document_files/aaulogo.png') }}" alt="cover image" height="765">
+									</div>
+								<div class="aimcolumn aimright">
+									<p>The EJHD is a not-for-profit peer-reviewed scientific journal that
+										publishes analytical, descriptive and methodological articles, reviews,
+										brief communications and commentaries on public health issues, to inform
+										current research, policy and practice in all areas of common interest to
+										scholars in the field of public health. The journal publishes materials
+										relevant to a wide range of disciplinary, inter-disciplinary and
+										trans-disciplinary studies. The EJHD is jointly managed and run by the
+										School of Public Health, Addis Ababa University and the Ethiopian Public
+										Health Association. The Editorial Board is composed of professionals
+										from diverse disciplinary fields will oversee the routine publication
+										processes. In addition, the journal has Editorial Advisors from a wide
+										range of disciplines across the world to ensure the quality and positive
+										image of the journal similar other scientific outlets. Routine operation
+										of the journal is run by an editorial team, composed of the
+										Editor-in-Chief, Associate Editors, Editorial Assistant, Journal Manager
+										and other administrative staff. Currently, the journal is fully online.
+										Authors, reviewers and other interested public health professional are
+										expected to register online to be able to visit the website<a
+											href="#"
+											name="_ftnref1"><sup>[1]</sup></a>, to submit their research work
+										for publication, read about the journal and submission procedures, read
+										published articles from our archives, download documents, recommend
+										articles to others, and so on. We have guidelines for authors and
+										reviewers, as well as a privacy policy, which should be consulted should
+										you intend to submit a manuscript or be invited to review a submission.
+										For further information, please refer to journal policy and guidelines.
+										Names and email addresses entered in this journal site will be used
+										exclusively for the stated purposes of this journal and will not be made
+										available for any other purpose or to any other party. The journal is
+										open access, with submissions, reviews and publication processes all
+										following the Online Journal System. The EJHD follows the Creative
+										Commons Attribution license. For statistical analyses on the use of the
+										journal, we use web analytics services such as Google Analytics.
+										Following OJS, we want all visitors to register to scan through sections
+										of the website..</p>
+									<ul>
+										<li class="show"><strong>Editor in Chief:</strong> Dr. Adamu Addissie
+										</li>
+										<li class="show"><strong>ISSN (online)</strong>: 1021-6790</li>
+										<li class="show"><strong>Frequency:</strong> Bi-monthly</li>
+									</ul>
+									<div class="container"><img class="indexings"
+											src="{{ url_for('main.static', filename='document_files/google.png') }}" alt="google"> <img class="indexings"
+											src="{{ url_for('main.static', filename='document_files/orcid.png') }}" alt="orcid"> <img class="indexings"
+											src="{{ url_for('main.static', filename='document_files/wos.png') }}" alt="wos"></div>
+								</div>
+							</div>
+						</div>
+						<section id="what-we-do">
+							<div class="container-fluid">
+								<h1 class="section-title mb-2 h1">Why us?</h1>
+								<div class="row mt-5">
+									<div class="col">
+										<div class="card">
+											<div class="card-block block-1">
+												<h3 class="card-title">Open Access</h3>
+												<p class="card-text">The Ethiopian Journal of Health Development
+													is a strong supporter of open access (OA). All the research
+													articles published in The Ethiopian Journal of Health
+													Development are fully open access.</p>
+												<a class="read-more" title="Read more"
+													href="#">Read
+													more<em class="fa fa-angle-double-right ml-2">
+														<!-- icon -->
+													</em></a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card">
+											<div class="card-block block-2">
+												<h3 class="card-title">Refereed</h3>
+												<p class="card-text">Peer review process - Committed to serving
+													the scientific community. The Ethiopian Journal of Health
+													Development uses a double-blind peer-review process.</p>
+												<a class="read-more" title="Read more"
+													href="#">Read
+													more<em class="fa fa-angle-double-right ml-2">
+														<!-- icon -->
+													</em></a>
+											</div>
+										</div>
+									</div>
+									<div class="w-100">&nbsp;</div>
+									<div class="col">
+										<div class="card">
+											<div class="card-block block-3">
+												<h3 class="card-title">Indexed</h3>
+												<p class="card-text">The journal is indexed and abstracted in
+													Scopus, Web of Science, Scopus, AJOL, Crossref, Google
+													Scholar. Ulrich Periodicals.</p>
+												<a class="read-more" title="Read more"
+													href="#">Read more<em
+														class="fa fa-angle-double-right ml-2">
+														<!-- icon -->
+													</em></a>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="card">
+											<div class="card-block block-4">
+												<h3 class="card-title">Free</h3>
+												<p class="card-text"><strong>The Ethiopian Journal of Health
+														Development</strong> welcomes original research articles
+													and does not charge a publication fee.</p>
+												<a class="read-more" title="Read more"
+													href="#">Read more<em
+														class="fa fa-angle-double-right ml-2">
+														<!-- icon -->
+													</em></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+					<div class="current_issue">
+						<div class="current_issue_title">&nbsp;</div>
+						<div class="obj_issue_toc">
+							<div class="heading"><a class="cover"
+									href="#">&nbsp;</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="current_issue">
+				<h2>
+					Current Issue
+				</h2>
+				<div class="current_issue_title">
+					{{ info_cat.name }}
+				</div>
+				<div class="obj_issue_toc">
+					<div class="heading">
+						<div class="published">
+							<span class="label">
+								Published:
+							</span>
+							<span class="value">
+								{% if info_cat %}{{ info_cat.published_date.strftime('%Y-%m-%d') }}{% endif %}
+							</span>
+						</div>
+					</div>
+
+
+					<div class="sections">
+						<!-- not special issue -->
+						{% if simple and not info_cat.special %}
+						<div class="section">
+							<h2>
+								Original Articles
+							</h2>
+							<ul class="cmp_article_list articles">
+								{% for i in simple %}
+								<li>
+									<div class="obj_article_summary">
+										<div class="title">
+											<a id="article-5378"
+												href="#">
+												{{ i.text }}
+											</a>
+										</div>
+										<div class="meta">
+											<div class="authors">
+												<i class="fa fa-users green" aria-hidden="true"></i> 
+												{{ i.author }}
+											</div>
+										</div>
+										<div class="tocreadcount">
+											<span></span> <span><i class="fa fa-bar-chart" aria-hidden="true"></i>
+												Abstract views:</span> <span><strong>{{ i.views }}</strong></span>
+										</div>
+										<div class="item doi">
+										</div>
+										<ul class="galleys_links">
+											<li>
+												<a class="obj_galley_link pdf"
+													href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+	
+													PDF
+	
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+					
+						<!-- end of the not special issue  -->
+						{% else %}
+							<!-- SPECIAL ISSUES  -->
+							{% if simple %}
+							<div class="section">
+								<ul class="cmp_article_list articles">
+									{% for i in simple %}
+									<li>
+										<div class="obj_article_summary">
+											<div class="title">
+												<a id="article-5378"
+													href="#">
+													{{ i.text }}
+												</a>
+											</div>
+											<div class="meta">
+												<div class="authors">
+													<i class="fa fa-users green" aria-hidden="true"></i> 
+													{{ i.author }}
+												</div>
+											</div>
+											<div class="tocreadcount">
+												<span></span> <span><i class="fa fa-bar-chart" aria-hidden="true"></i>
+													Abstract views:</span> <span><strong>{{ i.views }}</strong></span>
+											</div>
+											<div class="item doi">
+											</div>
+											<ul class="galleys_links">
+												<li>
+													<a class="obj_galley_link pdf"
+														href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+	
+														PDF
+	
+													</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							{% endif %}
+	
+							{% if editional %}
+							<div class="section">
+								<h2>
+									Editorial
+								</h2>
+								<ul class="cmp_article_list articles">
+									{% for i in editional %}
+									<li>
+										<div class="obj_article_summary">
+											<div class="title">
+												<a id="article-5378"
+													href="#">
+													{{ i.text }}
+												</a>
+											</div>
+											<div class="meta">
+												<div class="authors">
+													<i class="fa fa-users green" aria-hidden="true"></i> 
+													{{ i.author }}
+												</div>
+											</div>
+											<div class="tocreadcount">
+												<span></span> <span><i class="fa fa-bar-chart" aria-hidden="true"></i>
+													Abstract views:</span> <span><strong>{{ i.views }}</strong></span>
+											</div>
+											<div class="item doi">
+											</div>
+											<ul class="galleys_links">
+												<li>
+													<a class="obj_galley_link pdf"
+														href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+	
+														PDF
+	
+													</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							{% endif %}
+	
+							{% if special %}
+							<div class="section">
+								<h2>
+									Special Issue
+								</h2>
+								<ul class="cmp_article_list articles">
+									{% for i in special %}
+									<li>
+										<div class="obj_article_summary">
+											<div class="title">
+												<a id="article-5378"
+													href="#">
+													{{ i.text }}
+												</a>
+											</div>
+											<div class="meta">
+												<div class="authors">
+													<i class="fa fa-users green" aria-hidden="true"></i> 
+													{{ i.author }}
+												</div>
+											</div>
+											<div class="tocreadcount">
+												<span></span> <span><i class="fa fa-bar-chart" aria-hidden="true"></i>
+													Abstract views:</span> <span><strong>{{ i.views }}</strong></span>
+											</div>
+											<div class="item doi">
+											</div>
+											<ul class="galleys_links">
+												<li>
+													<a class="obj_galley_link pdf"
+														href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+	
+														PDF
+	
+													</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							{% endif %}
+	
+						{% endif %}
+					</div><!-- .sections -->
+				</div>
+				<a href="{{ url_for('archive') }}" class="read_more">
+					View All Issues
+				</a>
+			</div>
+
+		</div><!-- .page -->
+
+	</div><!-- pkp_structure_main -->
+
+	<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+		<div class="pkp_block block_make_submission">
+			<h2 class="pkp_screen_reader">
+				Make a Submission
+			</h2>
+
+			
+		</div>
+
+	</div><!-- pkp_sidebar.left -->
+</div><!-- pkp_structure_content -->
+{% endblock main %}

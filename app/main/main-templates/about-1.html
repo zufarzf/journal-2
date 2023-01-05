@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="pkp_structure_content has_sidebar">
+	<div class="pkp_structure_main" role="main">
+		<a id="pkp_content_main"></a>
+		<div class="page page_about">
+			<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+				<ol>
+					<li>
+						<a href="{{ url_for('index') }}">
+							Home
+						</a>
+						<span class="separator">/</span>
+					</li>
+					<li class="current">
+						<span aria-current="page">
+							About the Journal
+						</span>
+					</li>
+				</ol>
+			</nav>
+
+			<h1>
+				About the Journal
+			</h1>
+
+			<div id="sponsors">
+				<p style="text-align: justify;"><strong>About the Ethiopian Journal of Health
+						Development&nbsp;</strong></p>
+				<p style="text-align: justify;">The Ethiopian Journal of Health Development is a not-for-profit
+					peer-reviewed scientific journal that publishes analytical, descriptive, and methodological
+					articles, reviews, brief communications, and commentaries on public health issues, to inform
+					current research, policy, and practice in all areas of common interest to scholars in the
+					field of public health. The journal publishes materials relevant to a wide range of
+					disciplinary, inter-disciplinary, and trans-disciplinary studies.</p>
+				<p style="text-align: justify;">The Ethiopian Journal of Health Development is jointly managed
+					and run by the School of Public Health, Addis Ababa University, and the Ethiopian Public
+					Health Association. The Editorial Board is composed of professionals from diverse
+					disciplinary fields who will oversee the routine publication processes. In addition, the
+					journal has Editorial Advisors from a wide range of disciplines across the world to ensure
+					the quality and positive image of the journal vis-a-vis similar to other scientific outlets.
+					Routine operation of the journal is run by an editorial team, composed of the
+					Editor-in-Chief, Associate Editors, Editorial Assistant, Journal Manager, and other
+					administrative staff.</p>
+				<p style="text-align: justify;">Currently, the journal is fully online. Authors, reviewers, and
+					other interested public health professional are expected to register online to be able to
+					visit the website<a href="#_ftn1" name="_ftnref1"><sup>[1]</sup></a>, to submit their
+					research work for publication, read about the journal and submission procedures, read
+					published articles from our archives, download documents, recommend articles to others, and
+					so on. We have guidelines for authors and reviewers, as well as a privacy policy, which
+					should be consulted should you intend to submit a manuscript or be invited to review a
+					submission. For further information, please refer to the journal's policy and guidelines.
+					Names and email addresses entered in this journal site will be used exclusively for the
+					stated purposes of this journal and will not be made available for any other purpose or to
+					any other party.</p>
+				<p style="text-align: justify;">The journal is open access, with submissions, reviews, and
+					publication processes all following the Online Journal System. The Ethiopian Journal of
+					Health Development follows the Creative Commons Attribution license.</p>
+				<p style="text-align: justify;">For statistical analyses on the use of the journal, we use web
+					analytics services such as Google Analytics.</p>
+				<p style="text-align: justify;"><a href="#_ftnref1" name="_ftn1"><sup>[1]</sup></a> Following
+					OJS, we want all visitors to register to scan through sections of the website</p>
+			</div>
+		</div><!-- .page -->
+
+	</div><!-- pkp_structure_main -->
+
+	<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+		<div class="pkp_block block_make_submission">
+			<h2 class="pkp_screen_reader">
+				Make a Submission
+			</h2>
+
+		</div>
+
+	</div><!-- pkp_sidebar.left -->
+</div><!-- pkp_structure_content -->
+{% endblock main %}

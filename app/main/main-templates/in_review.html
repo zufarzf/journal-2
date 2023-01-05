@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="pkp_structure_content has_sidebar">
+	<div class="pkp_structure_main" role="main">
+		<a id="pkp_content_main"></a>
+
+		<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+			<ol>
+				<li>
+					<a href="{{ url_for('index') }}">
+						Home
+					</a>
+					<span class="separator">/</span>
+				</li>
+				<li class="current">
+					<span aria-current="page">
+						In review
+					</span>
+				</li>
+			</ol>
+		</nav>
+
+
+		<h1 class="page_title">In review</h1>
+		<div class="page">
+
+		</div>
+
+	</div><!-- pkp_structure_main -->
+
+	<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+		<div class="pkp_block block_make_submission">
+			<h2 class="pkp_screen_reader">
+				Make a Submission
+			</h2>
+
+		</div>
+
+	</div><!-- pkp_sidebar.left -->
+</div><!-- pkp_structure_content -->
+
+{% endblock main %}
