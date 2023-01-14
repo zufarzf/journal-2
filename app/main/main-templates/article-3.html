@@ -16,7 +16,7 @@
 						<span class="separator">/</span>
 					</li>
 					<li>
-						<a href="{{ url_for('archive') }}">
+						<a href="{{ url_for('archive', page_num=1) }}">
 							Archives
 						</a>
 						<span class="separator">/</span>
@@ -54,7 +54,7 @@
 								<div class="obj_article_summary">
 									<div class="title">
 										<a id="article-4891"
-											href="#">
+											href="{{url_for('abstract', text=i.text)}}">
 											{{ i.text }}
 										</a>
 									</div>
@@ -92,7 +92,7 @@
 								<div class="obj_article_summary">
 									<div class="title">
 										<a id="article-4891"
-											href="#">
+											href="{{url_for('abstract', text=i.text)}}">
 											{{ i.text }}
 										</a>
 									</div>
@@ -130,7 +130,7 @@
 								<div class="obj_article_summary">
 									<div class="title">
 										<a id="article-4891"
-											href="#">
+											href="{{url_for('abstract', text=i.text)}}">
 											{{ i.text }}
 										</a>
 									</div>

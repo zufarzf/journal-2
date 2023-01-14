@@ -8,6 +8,7 @@ class VolumeCat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), default = 'Vol')
     published_date = db.Column(db.DateTime, default=datetime.utcnow())
+    doi = db.Column(db.String(150), unique=True)
 
     current = db.Column(db.Boolean, default=False)
     just = db.Column(db.Boolean, default=False)
@@ -27,11 +28,12 @@ class VolumeInfo(db.Model):
     file = db.Column(db.String(100))
     text = db.Column(db.String(150), nullable=False)
     author = db.Column(db.String(150), nullable=False)
+    abstract = db.Column(db.Text, nullable=False)
+    cite = db.Column(db.String(255))
     views = db.Column(db.Integer, nullable=False)
 
     editional = db.Column(db.Boolean, default=False)
     special = db.Column(db.Boolean, default=False)
-
 
     vol_cat = db.Column(db.Integer, db.ForeignKey('volumecat.id'))
 

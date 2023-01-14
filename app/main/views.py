@@ -46,7 +46,10 @@ def index():
     special = []
     simple = []
 
-    url = request.base_url
+    if info_cat:
+        url = f'https://ethiopianjournal.org/archive/{info_cat.doi}'
+    else:
+        url=''
 
     if info_cat:
         info_vol = VolumeInfo.query.filter_by(vol_cat=info_cat.id).all()
@@ -63,6 +66,7 @@ def index():
                            info_cat=info_cat, url=url,
                            editional=editional, special=special,
                            simple=simple)
+
 
 @app.route('/about')
 def aboutjour():
@@ -117,26 +121,40 @@ def current():
             else:
                 simple.append(i)
 
-    url = request.base_url
+    if info_cat:
+        url = f'https://ethiopianjournal.org/archive/{info_cat.doi}'
+    else:
+        url=''
 
     return render_template('articles-1.html', info=informations,
                            info_cat=info_cat, url=url,
                            editional=editional, special=special,
                            simple=simple)
 
-@app.route('/archive')
-def archive():
+@app.route('/archives/<int:page_num>')
+def archive(page_num):
     informations = Email.query.first()
-    categories = VolumeCat.query.all()
+    categories = VolumeCat.query.paginate(per_page=18, page=page_num)
 
     return render_template('article-2.html', info = informations, cat=categories)
 
 
-@app.route("/archive/<path:volume>")
-def volume(volume):
+@app.route('/abstract/<path:text>')
+def abstract(text):
+    informations = Email.query.first()
+    item = VolumeInfo.query.filter_by(text=text).first()
+    id_num = item.vol_cat
+    cat = VolumeCat.query.filter_by(id=id_num).first()
+
+    return render_template('podrobniy_abstract.html', info = informations, item = item, cat=cat)
+
+
+@app.route("/archive/<path:doi>")
+def volume(doi):
+    print(doi)
     informations = Email.query.first()
 
-    info_cat = VolumeCat.query.filter_by(name=volume).first()
+    info_cat = VolumeCat.query.filter_by(doi=doi).first()
 
     editional = []
     special = []
@@ -153,7 +171,10 @@ def volume(volume):
             else:
                 simple.append(i)
 
-    url = request.base_url
+    if info_cat:
+        url = f'https://ethiopianjournal.org/archive/{info_cat.doi}'
+    else:
+        url=''
 
     return render_template('volume.html', info=informations,
                            info_cat=info_cat, url=url,
@@ -183,10 +204,8 @@ def just():
             else:
                 simple.append(i)
 
-    url = request.base_url
-
     return render_template('article-3.html', info=informations,
-                           info_cat=info_cat, url=url,
+                           info_cat=info_cat,
                            editional=editional, special=special,
                            simple=simple)
 
