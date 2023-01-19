@@ -80,7 +80,9 @@
 							<div class="meta">
 								<div class="authors">
 									<i class="fa fa-users green" aria-hidden="true"></i> 
-									{{ i.author }}
+									{% if i.author %}
+										{{ i.author_ }}
+									{% endif %}
 								</div>
 							</div>
 							<div class="tocreadcount">

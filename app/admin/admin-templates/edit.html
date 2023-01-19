@@ -1,0 +1,45 @@
+{% extends 'admin/master.html' %}
+
+{% block head_css %}
+  {{ super() }}
+  <link href="{{ url_for('admin_panel.static', filename='css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="add_author_form">
+    <h1 class="add__title">Edit item</h1>
+
+    <form method="post" action="{{url_for('edit_block.edit')}}">
+        {{ form.hidden_tag() }}
+        <!-- ====== ====== ====== -->
+        {% for field in form if field.name not in ['csrf_token', 'submit'] %}
+            {{ field.label }}
+
+            <!-- AUTHOR -->
+
+            {% if field.name == 'author' %}
+                {{ ckeditor.create(name = 'author', value=items.author|safe) }}
+                <!-- {{ field(class='author-input', value=items.author|safe) }} <br> -->
+            {% endif %}
+
+            <!-- ABSTRACT -->
+
+            {% if field.name == 'abstract' %}
+                {{ ckeditor.create(name = 'abstract', value=items.abstract|safe) }}
+                <!-- {{ field(class='abstract-input', value=items.abstract|safe) }} <br> -->
+            {% endif %}
+
+            <!-- HOW TO CITE -->
+
+            {% if field.name == 'cite' %}
+                {{ ckeditor.create(name = 'cite', value=items.cite) }}
+                <!-- {{ field(class='cite-input')}} <br> -->
+            {% endif %}
+
+        {% endfor %}
+        {{ form.submit }}
+        <br><br><br>
+        {{ ckeditor.load() }}
+    </form>
+</div>
+{% endblock %}

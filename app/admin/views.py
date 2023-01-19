@@ -1,5 +1,5 @@
-from flask import abort, Markup, url_for, session, request, current_app, g, redirect
-from flask_admin import Admin, AdminIndexView, expose, form
+from flask import abort, Markup, url_for, session, request, current_app, g, redirect, flash
+from flask_admin import Admin, AdminIndexView, expose, form, BaseView
 from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -14,6 +14,7 @@ from app.admin import admin_panel
 # from app.main.views import arr
 from app.models import *
 from app import app, db
+from app.admin.form import *
 
 
 file_path=os.path.abspath(os.path.dirname(__name__))
@@ -30,6 +31,16 @@ def title_gen_file(model, file_data):
 def title_gen_image(model, file_data):
     hash_name = f'{str(uuid4())}'
     return hash_name
+
+
+# class FileEdit(BaseView):
+#     @expose('/Files')
+#     def file(self, *func):
+#         def is_accessible(self):
+#         return current_user.is_authenticated
+
+#     info = VolumeInfo()
+
 
 
 class DashboardView(AdminIndexView):
@@ -51,6 +62,93 @@ class DashboardView(AdminIndexView):
 admins = Admin(app, name='Admin', template_mode='bootstrap3', index_view=DashboardView())
 
 
+class AuthorView(BaseView):
+    @expose('/')
+    def author(self, *func):
+        authors = VolumeCkeditor.query.all()
+        form = Fancy()
+
+        return self.render('authors.html', authors = authors, form=form)
+
+
+class DeleteView(BaseView):
+    @expose('/', methods=['POST', 'GET'])
+    def delete(self, *func):
+        if session['del_id'] == None:
+            return redirect(url_for('authors_block.author'))
+        form = Fancy()
+
+        if form.validate_on_submit():
+            result = form.radio.data
+
+            if result == 'yes':
+                
+                item = VolumeCkeditor.query.filter_by(id=session['del_id']).delete()
+                session['del_id']=None
+
+                return redirect(url_for('authors_block.author'))
+            elif result == 'no':
+                return redirect(url_for('authors_block.author'))
+        
+        return self.render('delete.html', form=form)
+        
+
+class AddView(BaseView):
+    @expose('/', methods=['POST', 'GET'])
+    def add(self):
+        addform = AddForm()
+
+        if addform.validate_on_submit():
+            print("ds")
+            au = addform.author.data
+            ab = addform.abstract.data
+            ci = addform.cite.data
+
+            result = VolumeCkeditor(author=au,
+                                    abstract=ab,
+                                    cite=ci)
+
+            db.session.add(result)
+            db.session.commit()
+
+            flash("Запись успешно записан!")
+
+        return self.render('add_author.html',
+                            addform = addform)
+
+
+class EditView(BaseView):
+    @expose('/', methods=['POST', 'GET'])
+    def edit(self):
+        if session['item_id'] == None:
+            return redirect(url_for('authors_block.author'))
+        
+        form = AddForm()
+
+        item_id = session['item_id']
+        items = VolumeCkeditor.query.filter_by(id=item_id).first()
+        
+        
+        if form.validate_on_submit():
+            print("validateni ichiga kirdi")
+            au = form.author.data
+            ab = form.abstract.data
+            ci = form.cite.data
+
+            items.author = au
+            items.abstract = ab
+            items.cite = ci
+
+            db.session.add(items)
+            db.session.commit()
+
+            session['item_id'] = None
+            
+            return redirect(url_for("authors_block.author"))
+            
+        return self.render('edit.html', items = items, form=form)
+
+
 class RekvizitView(ModelView):
     def is_accessible(self):
         return current_user.is_authenticated
@@ -59,11 +157,12 @@ class RekvizitView(ModelView):
         'id': 'ID',
         'file': 'Файл',
         'text': 'Загаловок',
-        'author': 'Авторы',
         'views': 'Abstract views',
         'current': 'Current',
         'just': 'Just accepted',
+        'author': 'Abstract',
         'vol_cat': 'Категории',
+        'author_':'Автор',
     }
 
     form_widget_args = {
@@ -202,7 +301,11 @@ class UsersView(ModelView):
     create_modal = True
     edit_modal = True
 
-admins.add_view(SmcView(VolumeCat, db.session, 'Категории'))
-admins.add_view(RekvizitView(VolumeInfo, db.session, 'Файл'))
 admins.add_view(EmailView(Email, db.session, 'Эл-почта'))
 admins.add_view(UsersView(Personal, db.session, 'Админы'))
+admins.add_view(SmcView(VolumeCat, db.session, 'Категории'))
+admins.add_view(RekvizitView(VolumeInfo, db.session, 'Файл'))
+admins.add_view(AuthorView(name='Авторы', endpoint='authors_block'))
+admins.add_view(AddView(name='Создать запись', endpoint='add_block'))
+admins.add_view(EditView(name='Изменить запись', endpoint='edit_block'))
+admins.add_view(DeleteView(name='Удалить запись', endpoint='delete_block'))

@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 # from flask_moment import Moment
 from flask_login import LoginManager
 from flask_msearch import Search
+from flask_ckeditor import CKEditor
 
 from config import config
 
@@ -16,6 +17,7 @@ migrate = Migrate()
 # babel = Babel(app)
 manager = LoginManager()
 search = Search()
+ckeditor = CKEditor()
 
 from . import models
 
@@ -28,6 +30,7 @@ def create_app(config_name):
     # moment.init_app(app)
     manager.init_app(app)
     search.init_app(app)
+    ckeditor.init_app(app)
 
     from .main import main
     from .admin import admin_panel

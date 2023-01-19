@@ -6,12 +6,12 @@ class Config:
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:MySQL.root.146@localhost:3306/journal_2'
     DEBUG = True
 
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///prod_data.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:MySQL.root.146@localhost:3306/journal_2'
     DEBUG = False
 
 

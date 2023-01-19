@@ -1,11 +1,15 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, session
 from flask_login import current_user, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
+
+from lxml import html
+from lxml.html.clean import clean_html
 
 from app import app, manager
 from app.main.UserLogin import UserLogin
 from app.main.forms import LoginForm
 from app.models import *
+from app.admin.form import *
 
 
 @manager.user_loader
@@ -15,6 +19,7 @@ def load_user(user_id):
 
 @app.route('/')
 def index():
+    
     person = Personal.query.all()
     lenth = len(person)
 
@@ -46,7 +51,10 @@ def index():
     special = []
     simple = []
 
-    url = request.base_url
+    if info_cat:
+        url = f'https://ethiopianjournal.org/archive/{info_cat.doi}'
+    else:
+        url=''
 
     if info_cat:
         info_vol = VolumeInfo.query.filter_by(vol_cat=info_cat.id).all()
@@ -58,11 +66,22 @@ def index():
                 special.append(i)
             else:
                 simple.append(i)
+            # print(type(i.author))
+            # tree = html.fromstring(i.author)
+
+            # res = clean_html(tree).strip()
+            # i.author = res
+
+    # ======== getting author from ckeditor module ========
+    id_ = VolumeInfo.query.filter_by(vol_cat=info_cat.id).first()
+    author = VolumeCkeditor.query.filter_by(vol_info = id_.id).first()
+    
 
     return render_template('main-index.html', info=informations,
                            info_cat=info_cat, url=url,
                            editional=editional, special=special,
-                           simple=simple)
+                           simple=simple, author=author)
+
 
 @app.route('/about')
 def aboutjour():
@@ -117,26 +136,37 @@ def current():
             else:
                 simple.append(i)
 
-    url = request.base_url
 
+    
     return render_template('articles-1.html', info=informations,
-                           info_cat=info_cat, url=url,
-                           editional=editional, special=special,
-                           simple=simple)
+                           info_cat=info_cat, editional=editional, 
+                           special=special, simple=simple)
 
-@app.route('/archive')
-def archive():
+@app.route('/archives/<int:page_num>')
+def archive(page_num):
     informations = Email.query.first()
-    categories = VolumeCat.query.all()
+    categories = VolumeCat.query.paginate(per_page=18, page=page_num)
 
     return render_template('article-2.html', info = informations, cat=categories)
 
 
-@app.route("/archive/<path:volume>")
-def volume(volume):
+@app.route('/abstract/<path:text>')
+def abstract(text):
+    informations = Email.query.first()
+    item = VolumeInfo.query.filter_by(text=text).first()
+    id_num = item.vol_cat
+    cat = VolumeCat.query.filter_by(id=id_num).first()
+    editor = VolumeCkeditor.query.filter_by(vol_info=item.id).first()
+
+    return render_template('podrobniy_abstract.html', info = informations, item = item, cat=cat, editor=editor)
+
+
+@app.route("/archive/<path:vol_name>")
+def volume(vol_name):
+    
     informations = Email.query.first()
 
-    info_cat = VolumeCat.query.filter_by(name=volume).first()
+    info_cat = VolumeCat.query.filter_by(name=vol_name).first()
 
     editional = []
     special = []
@@ -153,12 +183,11 @@ def volume(volume):
             else:
                 simple.append(i)
 
-    url = request.base_url
+    
 
     return render_template('volume.html', info=informations,
-                           info_cat=info_cat, url=url,
-                           editional=editional, special=special,
-                           simple=simple)
+                           info_cat=info_cat, editional=editional,
+                           special=special, simple=simple)
 
 
 @app.route('/just-accepted')
@@ -183,10 +212,8 @@ def just():
             else:
                 simple.append(i)
 
-    url = request.base_url
-
     return render_template('article-3.html', info=informations,
-                           info_cat=info_cat, url=url,
+                           info_cat=info_cat,
                            editional=editional, special=special,
                            simple=simple)
 
@@ -205,13 +232,17 @@ def search():
     cat_items = []
     items = []
     item = request.args.get('query')
+    
     if item:
-        items = VolumeInfo.query.msearch(item, fields=['text', 'author'])
+        items = VolumeInfo.query.msearch(item, fields=['text', 'author_'])
         cat_items = VolumeCat.query.msearch(item, fields=['name'])
     else:
         items = []
 
-    return render_template('search.html', info=informations, items=items, cat_items=cat_items)
+
+    return render_template('search.html', 
+                            info=informations, items=items,
+                            at_items=cat_items)
 
 
 @app.route("/login/", methods=['POST', 'GET'])
@@ -249,3 +280,22 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+# for admin dashboard
+
+@app.route('/session_add/<int:item_id>')
+def session_add(item_id):
+    session['item_id'] = item_id
+
+    return redirect(url_for('edit_block.edit'))
+
+
+@app.route('/delete/<int:item_id>', methods=['POST', 'GET'])
+def delete(item_id):
+    
+    session['del_id'] = item_id
+        
+    return redirect(url_for('delete_block.delete'))
+
+        

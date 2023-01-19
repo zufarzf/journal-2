@@ -1,0 +1,35 @@
+{% extends 'admin/master.html' %}
+
+{% block head_css %}
+  {{ super() }}
+  <link href="{{ url_for('admin_panel.static', filename='css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="add_author_form">
+    <h1 class="add__title">Add details</h1>
+    <!-- {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+            {% for i in messages %}
+                <div class="message">
+                    {{ messages }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% endwith %} -->
+    
+    <form method="post" action="{{url_for('add_block.add')}}">
+        {{ addform.hidden_tag() }}
+        <!-- ====== ====== ====== -->
+        {% for field in addform if field.name not in ['csrf_token', 'submit'] %}
+            {{ field.label }}
+            {{ field(class='add-input') }} <br>
+        {% endfor %}
+        {{ addform.submit }}
+        <br><br><br>
+        {{ ckeditor.load() }}
+    </form>
+</div>
+{% endblock %}

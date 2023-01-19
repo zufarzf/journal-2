@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?rm0895');
+  src: url('../fonts/icomoon.eot?rm0895#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?rm0895') format('truetype'),
+    url('../fonts/icomoon.woff?rm0895') format('woff'),
+    url('../fonts/icomoon.svg?rm0895#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+  content: "\e905";
+}
+
+.icon-bin:before {
+  content: "\e9ac";
+}
+
+body {
+  color: #404E67;
+  background: #F5F7FA;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.table-wrapper {
+  width: 900px;
+  margin: 30px auto;
+  background: inherit;
+  padding: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-title {
+  padding-bottom: 10px;
+  margin: 0 0 10px;
+}
+
+.table-title h2 {
+  margin: 6px 0 0;
+  font-size: 22px;
+}
+
+.table-title .add-new {
+  float: right;
+  height: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: none;
+  min-width: 100px;
+  border-radius: 50px;
+  line-height: 13px;
+}
+
+.table-title .add-new i {
+  margin-right: 4px;
+}
+
+table.table {
+  table-layout: fixed;
+}
+
+table.table tr th,
+table.table tr td {
+  border-color: #e9e9e9;
+}
+
+table.table th i {
+  font-size: 13px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+table.table th:last-child {
+  width: 100px;
+}
+
+table.table td a {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px;
+  min-width: 24px;
+}
+
+/* table.table td a.add {
+    display: block;
+    color: #27C46B;
+} */
+/* table.table td a.add {
+  
+  color: #27C46B;
+} */
+
+table.table td a.edit::before {
+  font-family: 'icomoon';
+  content: "\e905";
+  color: #FFC107;  
+}
+
+table.table td a.delete::before {
+  font-family: 'icomoon';
+  content: "\e9ac";
+  color: #E34724;
+}
+
+table.table td i {
+  font-size: 19px;
+}
+
+table.table td a.add i {
+  font-size: 24px;
+  margin-right: -1px;
+  position: relative;
+  top: 3px;
+}
+
+table.table .form-control {
+  height: 32px;
+  line-height: 32px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+table.table .form-control.error {
+  border-color: #f50000;
+}
+
+table.table td .add {
+  display: none;
+}
+
+.add_author_form{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.add__title{
+  font-size: 22px;
+  color: #404E67;
+  text-align: center;
+}
+
+.message{
+  font-size: 18px;
+  color: #404E67;
+  max-width: 200px;
+  width: 100%;
+  padding: 10px 15px;
+}
+
+li{
+  list-style: none;
+}

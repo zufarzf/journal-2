@@ -1,0 +1,10 @@
+.add_author_form{
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .add__title{
+    font-size: 22px;
+    color: #404E67;
+    text-align: center;
+  }

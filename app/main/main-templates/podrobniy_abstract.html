@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="pkp_structure_page">
+	<div class="pkp_structure_content has_sidebar">
+		<div class="pkp_structure_main" role="main">
+			<a id="pkp_content_main"></a>
+
+			<div class="page page_article">
+				<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+					<ol>
+						<li>
+							<a href="{{ url_for('index') }}">
+								Home
+							</a>
+							<span class="separator">/</span>
+						</li>
+						<li>
+							<a href="{{ url_for('archive', page_num=1) }}">
+								Archives
+							</a>
+							<span class="separator">/</span>
+						</li>
+						<li>
+							<a href="{{url_for('volume', vol_name=cat.name)}}">
+								{{cat.name}}
+							</a>
+							<span class="separator">/</span>
+						</li>
+						{% if item.editional %}
+						<li class="current" aria-current="page">
+							<span aria-current="page">
+								Editorial
+							</span>
+						</li>
+						{% elif item.special %}
+						<li class="current" aria-current="page">
+							<span aria-current="page">
+								Special
+							</span>
+						</li>
+						{% endif %}
+					</ol>
+				</nav>
+
+				<article class="obj_article_details">
+					<h1 class="page_title">
+						{{item.text}}
+					</h1>
+					<div class="row">
+						<div class="main_entry">
+							<section class="item authors">
+								<h2 class="pkp_screen_reader">Authors</h2>
+								<ul class="authors">
+									<li>
+										<span class="name">
+											{{editor.author|safe}}
+										</span>
+									</li>
+									{% if item.author_email %}
+										<a href="mailto:{{item.author_email}}">{{item.author_email}}</a>
+									{% endif %}
+								</ul>
+							</section>
+							<section class="item abstract">
+								<h2 class="label">Abstract</h2>
+								<p>{{editor.abstract|safe}}</p>
+							</section>
+						</div><!-- .main_entry -->
+
+						<div class="entry_details">
+							<div class="item galleys">
+								<ul class="value galleys_links">
+									<li>
+										{% if item.file %}
+										<a class="obj_galley_link pdf"
+											href="{{ url_for('main.static', filename='file/' + item.file) }}">
+
+											PDF
+
+										</a>
+										{% else %}
+										<a class="obj_galley_link pdf"
+											href="#">
+
+											PDF
+
+										</a>
+										{% endif %}
+									</li>
+								</ul>
+							</div>
+
+							<div class="item published">
+								<section class="sub_item">
+									<h2 class="label">
+										Published
+									</h2>
+									<div class="value">
+										<span>{% if cat %}{{ cat.published_date.strftime('%Y-%m-%d') }}{% endif %}</span>
+									</div>
+								</section>
+							</div>
+
+							<div class="item citation">
+								<section class="sub_item citation_display">
+									<h2 class="label">
+										How to Cite
+									</h2>
+									<div class="value">
+										<div id="citationOutput" role="region" aria-live="polite">
+											<div class="csl-bib-body">
+												<div class="csl-entry">{{editor.cite|safe}}</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+
+							<div class="item issue">
+
+								<section class="sub_item">
+									{% if cat.special %}
+									<h2 class="label">
+										Special issue
+									</h2>
+									{% elif cat.special == False %}
+									<h2 class="label">
+										Issue
+									</h2>
+									{% endif %}
+									<div class="value">
+										<a href="{{url_for('volume', vol_name=cat.name)}}">
+											{{cat.name}}
+										</a>
+									</div>
+								</section>
+
+								<section class="sub_item">
+									<h2 class="label">
+										Section
+									</h2>
+									{% if item.editional %}
+									<div class="value">
+										Editorial
+									</div>
+									{% elif item.special %}
+									<div class="value">
+										Special
+									</div>
+									{% endif %}
+								</section>
+							</div>
+						</div><!-- .entry_details -->
+					</div><!-- .row -->
+				</article>
+			</div><!-- .page -->
+
+		</div><!-- pkp_structure_main -->
+
+		<div class="pkp_structure_sidebar left" role="complementary" aria-label="Sidebar">
+			<div class="pkp_block block_make_submission">
+				<h2 class="pkp_screen_reader">
+					Make a Submission
+				</h2>
+			</div>
+
+		</div><!-- pkp_sidebar.left -->
+	</div><!-- pkp_structure_content -->
+</div>
+{% endblock main %}

@@ -68,22 +68,22 @@
 									</a>
 									<!-- <ul>
 										<li class="">
-											<a href="https://ejhd.org/index.php/ejhd/announcement">
+											<a href="#">
 												Announcements and News
 											</a>
 										</li>
 										<li class="">
-											<a href="https://ejhd.org/index.php/ejhd/in-review">
+											<a href="#">
 												In review
 											</a>
 										</li>
 										<li class="">
-											<a href="https://ejhd.org/index.php/ejhd/sponsors">
+											<a href="#">
 												Sponsors
 											</a>
 										</li>
 										<li class="">
-											<a href="https://ejhd.org/index.php/ejhd/contact-us">
+											<a href="#">
 												Contact Us
 											</a>
 										</li>
@@ -127,7 +127,7 @@
 											</a>
 										</li>
 										<li class="">
-											<a href="{{ url_for('archive') }}">
+											<a href="{{ url_for('archive', page_num=1) }}">
 												Archives
 											</a>
 										</li>
@@ -181,7 +181,7 @@
 
 					</div> -->
 
-					<form class="pkp_search pkp_search_mobile" action="https://ejhd.org/index.php/ejhd/search/search"
+					<form class="pkp_search pkp_search_mobile" action=""
 						method="get" role="search" aria-label="Article Search">
 						<input type="hidden" name="csrfToken" value="6e39d459dd736325e63182403208cf42">
 
@@ -192,7 +192,7 @@
 							Search
 						</button>
 						<div class="search_controls" aria-hidden="true">
-							<a href="https://ejhd.org/index.php/ejhd/search/search"
+							<a href=""
 								class="headerSearchPrompt search_prompt" aria-hidden="true">
 								Search
 							</a>
@@ -229,15 +229,15 @@
 
 	</div><!-- pkp_structure_page -->
 
-	<script src="{{ url_for('main.static', filename='document_files/jquery.min.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/jquery-ui.min.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/jquery.tag-it.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/popper.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/util.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/dropdown.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/main.js?v=3.2.1.2') }}" type="text/javascript"></script>
-	<script src="{{ url_for('main.static', filename='document_files/jquery.min(0).js?v=3.2.1.2') }}" type="text/javascript"></script>
-
+	<script src="{{ url_for('main.static', filename='document_files/jquery.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery-ui.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery.tag-it.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/popper.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/util.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/dropdown.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/main.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('main.static', filename='document_files/jquery.min(0).js') }}" type="text/javascript"></script>
+	<!-- pkp_structure_page -->
 </body>
 
 </html>

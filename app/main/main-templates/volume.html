@@ -16,7 +16,7 @@
 						<span class="separator">/</span>
 					</li>
 					<li>
-						<a href="{{ url_for('archive') }}">
+						<a href="{{ url_for('archive', page_num=1) }}">
 							Archives
 						</a>
 						<span class="separator">/</span>
@@ -38,9 +38,11 @@
 							DOI:
 						</span>
 						<span class="id">
-							<a href="{{ url }}">
-								{{ url }}
+							{% if info_cat.doi %}
+							<a href="{{ url_for('volume', vol_name=info_cat.name) }}">
+								{{ info_cat.doi }}
 							</a>
+							{% endif %}
 						</span>
 					</div>
 
@@ -66,14 +68,14 @@
 								<div class="obj_article_summary">
 									<div class="title">
 										<a id="article-5378"
-											href="#">
+											href="{{url_for('abstract', text=i.text)}}">
 											{{ i.text }}
 										</a>
 									</div>
 									<div class="meta">
 										<div class="authors">
 											<i class="fa fa-users green" aria-hidden="true"></i> 
-											{{ i.author }}
+											{{ i.author_ }}
 										</div>
 									</div>
 									<div class="tocreadcount">
@@ -84,12 +86,21 @@
 									</div>
 									<ul class="galleys_links">
 										<li>
-											<a class="obj_galley_link pdf"
-												href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
+											{% if i.file %}
+												<a class="obj_galley_link pdf"
+													href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
 
-												PDF
+													PDF
 
-											</a>
+												</a>
+												{% else %}
+												<a class="obj_galley_link pdf"
+													href="#">
+
+													PDF
+
+												</a>
+												{% endif %}
 										</li>
 									</ul>
 								</div>
@@ -109,14 +120,14 @@
 									<div class="obj_article_summary">
 										<div class="title">
 											<a id="article-5378"
-												href="#">
+												href="{{url_for('abstract', text=i.text)}}">
 												{{ i.text }}
 											</a>
 										</div>
 										<div class="meta">
 											<div class="authors">
 												<i class="fa fa-users green" aria-hidden="true"></i> 
-												{{ i.author }}
+												{{ i.author_ }}
 											</div>
 										</div>
 										<div class="tocreadcount">
@@ -127,12 +138,21 @@
 										</div>
 										<ul class="galleys_links">
 											<li>
+												{% if i.file %}
 												<a class="obj_galley_link pdf"
 													href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
 
 													PDF
 
 												</a>
+												{% else %}
+												<a class="obj_galley_link pdf"
+													href="#">
+
+													PDF
+
+												</a>
+												{% endif %}
 											</li>
 										</ul>
 									</div>
@@ -153,14 +173,14 @@
 									<div class="obj_article_summary">
 										<div class="title">
 											<a id="article-5378"
-												href="#">
+												href="{{url_for('abstract', text=i.text)}}">
 												{{ i.text }}
 											</a>
 										</div>
 										<div class="meta">
 											<div class="authors">
 												<i class="fa fa-users green" aria-hidden="true"></i> 
-												{{ i.author }}
+												{{ i.author_ }}
 											</div>
 										</div>
 										<div class="tocreadcount">
@@ -171,12 +191,21 @@
 										</div>
 										<ul class="galleys_links">
 											<li>
+												{% if i.file %}
 												<a class="obj_galley_link pdf"
 													href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
 
 													PDF
 
 												</a>
+												{% else %}
+												<a class="obj_galley_link pdf"
+													href="#">
+
+													PDF
+
+												</a>
+												{% endif %}
 											</li>
 										</ul>
 									</div>
@@ -197,14 +226,14 @@
 									<div class="obj_article_summary">
 										<div class="title">
 											<a id="article-5378"
-												href="#">
+												href="{{url_for('abstract', text=i.text)}}">
 												{{ i.text }}
 											</a>
 										</div>
 										<div class="meta">
 											<div class="authors">
 												<i class="fa fa-users green" aria-hidden="true"></i> 
-												{{ i.author }}
+												{{ i.author_ }}
 											</div>
 										</div>
 										<div class="tocreadcount">
@@ -215,12 +244,21 @@
 										</div>
 										<ul class="galleys_links">
 											<li>
+												{% if i.file %}
 												<a class="obj_galley_link pdf"
 													href="{{ url_for('main.static', filename='file/' + i.file) }}", target="_blank">
 
 													PDF
 
 												</a>
+												{% else %}
+												<a class="obj_galley_link pdf"
+													href="#">
+
+													PDF
+
+												</a>
+												{% endif %}
 											</li>
 										</ul>
 									</div>
